@@ -14,17 +14,41 @@ def get_connection():
     return conn
 
 def init_db():
+    print("Initializing database...")
     conn = get_connection()
     cursor = conn.cursor()
+    
+    cursor.executescript("""
+        CREATE TABLE IF NOT EXISTS house_prices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            GrLivArea REAL,
+            BedroomAbvGr REAL,
+            FullBath REAL,
+            YearBuilt REAL,
+            OverallQual REAL,
+            SalePrice REAL
+        );
 
-    schema_path = os.path.join("src","database","schema.sql")
-    with open(schema_path, "r") as f:
-        schema = f.read()
+        CREATE TABLE IF NOT EXISTS model_versions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
+            model_name TEXT,
+            rmse REAL,
+            r2 REAL,
+            params TEXT
+        );
 
-    cursor.executescript(schema)
+        CREATE TABLE IF NOT EXISTS predictions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            model_version_id INTEGER,
+            predicted_price REAL,
+            timestamp TEXT
+        );
+    """)
+    
     conn.commit()
     conn.close()
-    print("Database intialized.")
+    print("Database initialized.")
 
 def save_clean_data(train_df):
     print("saving clean data to database...")

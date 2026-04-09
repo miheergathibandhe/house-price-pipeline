@@ -18,5 +18,7 @@ CREATE TABLE IF NOT EXISTS model_version(
 CREATE TABLE if not EXISTS predictions(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     mode_version_id INTEGER,
-    predicted_price REALO,
+    predicted_price REAL,
     timestamp TEXT);
+    
+    
