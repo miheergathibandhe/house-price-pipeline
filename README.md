@@ -5,6 +5,7 @@ An end-to-end Machine Learning + Data Engineering pipeline that predicts house p
 ## Architecture
 
 ## Project Structure
+```
 house-price-pipeline/
 ├── data/
 │   ├── raw/              # Original CSV files
@@ -18,6 +19,7 @@ house-price-pipeline/
 ├── main.py               # Pipeline entry point
 ├── requirements.txt
 └── README.md
+```
 
 ##Tech Stack
 - Python, pandas, Numpy
@@ -41,7 +43,7 @@ house-price-pipeline/
 pip install -r requirements.txt
 python main.py
 '''
- 
+
 ## Key Features
 - Modular pipeline scripts
 - SQL database layer
