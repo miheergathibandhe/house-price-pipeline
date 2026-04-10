@@ -6,7 +6,7 @@ import os
 db_path = os.path.join("data","house_prices.db")
 
 def get_engine():
-    engine = create_engine(f"sqlite3:///(db_path)")
+    engine = create_engine(f"sqlite:///(db_path)")
     return engine
 
 def get_connection():
