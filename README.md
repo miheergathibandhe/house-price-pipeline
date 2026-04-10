@@ -21,7 +21,7 @@ house-price-pipeline/
 └── README.md
 ```
 
-##Tech Stack
+## Tech Stack
 - Python, pandas, Numpy
 - Scikit-learn (Random forest)
 - SQLAlchemy = sqlite
@@ -39,10 +39,10 @@ house-price-pipeline/
 - R2: 0.7782
 
 ## How to run
-''' bash
+```bash
 pip install -r requirements.txt
 python main.py
-'''
+```
 
 ## Key Features
 - Modular pipeline scripts
